@@ -26,6 +26,11 @@ const store = new Vuex.Store({
       }, 3000);
     },
   },
+  getters: {
+    importantItems: state => {
+      return state.items.filter(item => item.toLowerCase().includes('important')).length;
+    }
+  },
   // Store data across page refreshes, only discard on browser close
   plugins: [createPersistedState()]
 });

@@ -13,6 +13,9 @@
       <router-link to="/">
         Home
       </router-link>
+      <router-link to="/stats">
+        Stats
+      </router-link>
     </div>
     <section class="alerts">
       <article
