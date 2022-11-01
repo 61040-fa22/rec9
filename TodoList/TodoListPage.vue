@@ -1,10 +1,10 @@
 <template>
   <main>
-    <TodoInputForm button="Add Todo" @itemAdded="addItem" />
-    <section v-if="items.length" id="todo-list">
+    <TodoInputForm button="Add Todo" />
+    <section v-if="$store.state.items.length" id="todo-list">
       <ol>
         <TodoListItem
-          v-for="(item, index) in items"
+          v-for="(item, index) in $store.state.items"
           :key="index"
           :content="item"
         />
@@ -22,14 +22,6 @@ import TodoListItem from "./TodoListItem.vue";
 
 export default {
   components: { TodoInputForm, TodoListItem },
-  name: "TodoListPage",
-  data() {
-    return { items: [] };
-  },
-  methods: {
-    addItem: function (content) {
-      this.items.push(content);
-    },
-  },
+  name: "TodoListPage"
 };
 </script>

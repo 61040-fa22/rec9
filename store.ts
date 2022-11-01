@@ -9,9 +9,13 @@ Vue.use(Vuex);
  */
 const store = new Vuex.Store({
   state: {
+    items: [],
     alerts: {} // global success/error messages encountered during submissions to non-visible forms
   },
   mutations: {
+    addItem(state, item) {
+      state.items.push(item);
+    },
     alert(state, payload) {
       /**
        * Add a new message to the global alerts.
@@ -20,7 +24,7 @@ const store = new Vuex.Store({
       setTimeout(() => {
         Vue.delete(state.alerts, payload.message);
       }, 3000);
-    }
+    },
   },
   // Store data across page refreshes, only discard on browser close
   plugins: [createPersistedState()]

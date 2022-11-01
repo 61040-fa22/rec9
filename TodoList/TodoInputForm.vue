@@ -11,7 +11,7 @@ export default {
     async submit() {
       const text = this.value.trim();
       if (text) {
-        this.$emit("itemAdded", text);
+        this.$store.commit("addItem", this.value);
         this.$store.commit("alert", {
           message: `Made todo item with content: ${text}`,
           status: "success",
