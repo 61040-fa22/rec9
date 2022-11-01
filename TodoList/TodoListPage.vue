@@ -9,6 +9,7 @@
           :content="item"
         />
       </ol>
+      <TodoFilterForm button="Get Todo Filter Stats"/>
     </section>
     <section v-else id="todo-list">
       <p>No todo items.</p>
@@ -17,11 +18,12 @@
 </template>
 
 <script>
+import TodoFilterForm from './TodoFilterForm.vue';
 import TodoInputForm from "./TodoInputForm.vue";
 import TodoListItem from "./TodoListItem.vue";
 
 export default {
-  components: { TodoInputForm, TodoListItem },
+  components: { TodoInputForm, TodoListItem, TodoFilterForm },
   name: "TodoListPage"
 };
 </script>
