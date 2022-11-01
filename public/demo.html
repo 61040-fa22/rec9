@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A9 Todo List</title>
+    <style>
+        #todo-list {
+            list-style-position: inside;
+            padding-left: 1em;
+        }
+
+        #todo-list .checked {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input id="textbox" type="text">
+        <button id="submit">Add Todo</button>
+    </div>
+    <ol id="todo-list"></ol>
+
+    <script>
+        const button = document.getElementById('submit');
+        button.addEventListener('click', function () {
+            const input = document.getElementById('textbox');
+            const inputText = input.value.trim();
+            const list = document.getElementById('todo-list');
+            if (inputText) {
+                const item = document.createElement('li');
+
+                const checkbox = document.createElement('input');
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.addEventListener('click', function () {
+                    this.parentNode.classList[this.checked ? 'add' : 'remove']('checked');
+                });
+                item.appendChild(checkbox);
+
+                const text = document.createTextNode(inputText);
+                item.appendChild(text);
+
+                list.appendChild(item);
+            }
+            input.setRangeText('', 0, inputText.length);
+        });
+    </script>
+</body>
+
+</html>
